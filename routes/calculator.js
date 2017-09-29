@@ -1,25 +1,25 @@
 
 function calculate(req, res){
 	//TODO check number validation....
-	var operand = req.body.operand;
+	var operator = req.body.operator;
 	var firstNum = req.body.firstNum;
 	var secondNum = req.body.secondNum;
 	var result;
-	switch(operand) {
-		case 'add':
+	switch(operator) {
+		case '+':
 			result = firstNum + secondNum;
 			break;
-		case 'sub':
+		case '-':
 			result = firstNum - secondNum;
 			break;
-		case 'div':
+		case '/':
 			result = firstNum / secondNum;
 			break;
-		case 'mul':
+		case '*':
 			result = firstNum * secondNum;
 			break;
 		default:
-			res.json({statusCode: 400, message: 'Not a valid operand.'})
+			res.json({statusCode: 400, message: 'Not a valid operator.'})
 			return;
 	}
 	res.json({statusCode: 200, message: 'Success.', data: result});
